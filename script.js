@@ -27,7 +27,7 @@ document.getElementById("password").style.objectFit = "cover";
 document.getElementById("password").style.resize = "none";
 document.getElementById("password").style. height = "150px";
 document.getElementById("password").style.width = "500px";
-document.getElementById("password").style.textDecorationStyle = "dashed";
+document.getElementById("password").style.border = "dashed 1px";
 
 
 //This code is for the generate password button style
@@ -48,28 +48,124 @@ document.getElementById("copy").style.fontSize = "20px";
 
 
 
-//This code provides the prompt when you click the "generate password" button
-var passwordLength = document.getElementById("password");
-var passwordChar = document.getElementById("generate");
-var userInput = parseInt ("generate");
 
+var passwordArea = document.getElementById("password");
+var passwordButton = document.getElementById("generate");
+
+
+//This code provides the prompts when you click the "generate password" button and writes the responses into the console in the inspector.
 document.getElementById("generate").addEventListener ("click", function() {
-    prompt("How many characters would you like your password to contain?");
-    console.log (passwordLength);
+    var userInput = parseInt(prompt("How many characters would you like your password to contain?")); 
+    console.log (userInput);
+    var confirmSpecialChar = confirm("Click OK to confirm including special characters.");
+    console.log(confirmSpecialChar);
+    var confirmNumericChar = confirm("Click OK to confirm including numeric characters.");
+    console.log(confirmNumericChar);
+    var confirmLowerCase = confirm("Click OK to confirm including lowercase characters.");
+    console.log(confirmLowerCase);
+    var confirmUpperCase = confirm("Click OK to confirm including uppercase characters.");
+    console.log(confirmUpperCase);
 })
 
-var confirmSpecialChar = confirm("Click OK to confirm including special characters.");
-
-var confirmNumericChar = confirm("Click OK to confirm including numeric characters.");
-
-var confirmLowerCase = confirm("Click OK to confirm including lowercase characters.");
-
-var confirmUpperCase = confirm("Click OK to confirm including uppercase characters.");
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+/*
+runFunction(){
+    if (userInput < 7 && > 129) {
+        alert("You have chosen " + userInput + " for your password length.");
+    } else {
+        alert("You have not chosen a password length!");
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           /*  
+             var keylist = "abcdefghijklmnopqrstuvwxyz";
+             var temp = " ";
+             
+             function generatePass (plength) {
+                 temp = " "
+                 for (i = 0; i < plength; i++)
+                     temp += keylist.charAt(Math.floor(Math.random()*keylist.length))
+                 return temp
+             }
+             
+             function populateForm(enterLength) {
+                 document.pgenerate.output.value = generatepass(enterLength);
+             }
+             
+             
+             
+             
+             function generatePassword() {
+                 var length = 0-128;
+                 charset = "abcdefghijklmnopqrstuvwxyz123456789";
+                 retVal = "";
+                 for (var i = 0, n = charset.length; i <= length; i++) {
+                     retVal += charset.charAt(Math.floor(Math.random() * n));
+                 }
+                 return retVal;
+             }
+             
+         }
+     }
+/*
+
+var keylist = "abcdefghijklmnopqrstuvwxyz";
+var temp = " ";
+
+function generatePass (plength) {
+    temp = " "
+    for (i = 0; i < plength; i++)
+        temp += keylist.charAt(Math.floor(Math.random()*keylist.length))
+    return temp
+}
+
+function populateForm(enterLength) {
+    document.pgenerate.output.value = generatepass(enterLength);
+}
+
+
+
+
+function generatePassword() {
+    var length = 0-128;
+    charset = "abcdefghijklmnopqrstuvwxyz123456789"; 
+    retVal = "";
+    for (var i = 0, n = charset.length; i <= length; i++) {
+        retVal += charset.charAt(Math.floor(Math.random() * n));
+    }
+    return retVal;
+}
+*/
 
 
 

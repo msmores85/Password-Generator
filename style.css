@@ -1,8 +1,8 @@
 /*The following media queries will allow the screen to be responsive*/
 @media screen and (max-width: 640px) {
-    body {
-      font-size: 12px;
-      line-height: 23px;
+    .container {
+      height: 100%;
+      width: 100%;
     }
   }
   
