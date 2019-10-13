@@ -1,20 +1,21 @@
 /*The following media queries will allow the screen to be responsive*/
 @media screen and (max-width: 640px) {
-    .container {
-      height: 100%;
-      width: 100%;
-    }
+  body {
+    width: 100%; 
+    height: auto;
   }
+ }
   
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 768px) { 
     body {
-      font-size: 14px;
-      line-height: 25px;
+      width: 100%; 
+      height: auto;
     }
-  }
+   }
   
-  @media screen and (max-width: 980px) {
+  @media screen and (max-width: 980px) { 
     body {
-      font-size: 18px; 
-      line-height: 27px; 
+      width: 100%; 
+      height: auto;
     }
+   }

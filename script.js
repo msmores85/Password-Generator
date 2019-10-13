@@ -46,6 +46,8 @@ document.getElementById("copy").style.padding = "15px";
 document.getElementById("copy").style.fontSize = "20px";
 
 
+//         END of background & font styling
+
 
 
 
@@ -54,42 +56,71 @@ var passwordButton = document.getElementById("generate");
 
 
 //This code provides the prompts when you click the "generate password" button and writes the responses into the console in the inspector.
-document.getElementById("generate").addEventListener ("click", function() {
-    var userInput = parseInt(prompt("How many characters would you like your password to contain?")); 
-    console.log (userInput);
+
+
+//The following function is used to create the password based on the number of characters requested by the user
+function passGen(length) {
+    //The following are variables for the function:
+    var specialChar = "`~!@#$%^&*()_+-=[]\{}|;':\",./<>?";
+    var numericChar = "0123456789";
+    var lowercaseChar = "abcdefghijklmnopqrstuvwxyz";
+    var uppercaseChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var password = "";
+    var emptyArray = [];
+
+    var userInput = parseInt(prompt ("How many characters would you like your password to contain?"));
+    console.log(passGenLength);
+
+//The following are conditions for the user input to be confirmed by the user. 
+if (!userInput) {
+    alert("You must enter a number.");
+} else if (userInput < 8) {
+    alert("Your password must be at least 8-128 characters long.");
+} else {
     var confirmSpecialChar = confirm("Click OK to confirm including special characters.");
-    console.log(confirmSpecialChar);
     var confirmNumericChar = confirm("Click OK to confirm including numeric characters.");
-    console.log(confirmNumericChar);
-    var confirmLowerCase = confirm("Click OK to confirm including lowercase characters.");
-    console.log(confirmLowerCase);
-    var confirmUpperCase = confirm("Click OK to confirm including uppercase characters.");
-    console.log(confirmUpperCase);
-})
+    var confirmLowercaseChar = confirm("Click OK to confirm including lowercase characters.");
+    var confirmUppercaseChar = confirm("Click OK to confirm including uppercase characters.");
+}
 
 
+//The following are conditions to push the variables made up of the special characters, numeric characters, lowercase characters, and uppercase characters into the empty array. 
+//The user input will establish which strings get pushed into the empty array to be used for the password-generator. 
+if (confirmSpecialChar) { 
+    emptyArray.push(specialChar);
+}
 
+if(conformNumericChar) {
+    emptyArray.push(numericChar);
+}
 
+if(confirmLowercaseChar) {
+    emptyArray.push(lowercaseChar);
+}
 
+if (confirmUppercaseChar) {
+    emptyArray.push(uppercaseChar);
+}
 
+//The following for loop begins the index at 0, the first placement.
+//Then, it threads through that length along the index using the Math.floor and Math.random to pull numbers from the index to put them into a new empty array 
+for (var i = 0; i < length; i++) {
+    var arrayChar1 = Math.floor(Math.random() * emptyArray.length);
+    var arrayChar2 = Math.floor(Math.random() * emptyArray[arrayChar1].length)
+    password += emptyArray[arrayChar1].charAt(arrayChar2);
+    console.log("for loop forArray: ", emptyArray[i]);
+    
+function populateForm(passGenLength) {
+    document.pgenerate.output.value = generatepass(emptyArrayLength);
+}
 
+}
 
+return password
 
+var generateButton = document.getElementById("generate");
+generateButton.addEventListener("click", passGen);
 
-
-
-
-
-
-
-
-/*
-runFunction(){
-    if (userInput < 7 && > 129) {
-        alert("You have chosen " + userInput + " for your password length.");
-    } else {
-        alert("You have not chosen a password length!");
-    }
 }
 
 
@@ -101,24 +132,8 @@ runFunction(){
 
 
 
-
-
-
-
-
-
-           /*  
-             var keylist = "abcdefghijklmnopqrstuvwxyz";
-             var temp = " ";
              
-             function generatePass (plength) {
-                 temp = " "
-                 for (i = 0; i < plength; i++)
-                     temp += keylist.charAt(Math.floor(Math.random()*keylist.length))
-                 return temp
-             }
-             
-             function populateForm(enterLength) {
+             /*function populateForm(enterLength) {
                  document.pgenerate.output.value = generatepass(enterLength);
              }
              
